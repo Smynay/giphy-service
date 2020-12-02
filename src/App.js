@@ -1,23 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header';
+import GifCard from './components/GifCard';
+import { ApiKey } from './ApiKey';
 
 function App() {
+  const getResponse = (url) => fetch(url);
+
+  let result = getResponse(
+    `https://api.giphy.com/v1/gifs/search?api_key=${ApiKey}&q=12&limit=25&offset=0&rating=g&lang=ru`
+  );
+
+  result.then((response) => response.json()).then((data) => console.log(data));
+  // .then((result) => result.data.forEach((gif) => console.log(gif.url)));
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <div className="container-sm d-flex flex-row justify-content-around flex-wrap">
+        <GifCard />
+        <GifCard />
+        <GifCard />
+        <GifCard />
+        <GifCard />
+        <GifCard />
+        <GifCard />
+        <GifCard />
+        <GifCard />
+      </div>
     </div>
   );
 }
