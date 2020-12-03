@@ -2,10 +2,14 @@ import React from 'react';
 import GifCard from './GifCard';
 import ApiKey from '../ApiKey';
 
-const GifList = ({ length = 0 }) => {
+const GifList = ({ length = 0, items = [] }) => {
   return (
     <div className="GifList">
-      <div>dawawdadwa</div>
+      {items.map((item) => {
+        return <GifCard />;
+      })}
     </div>
   );
 };
+
+export default GifList;
