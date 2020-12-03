@@ -2,6 +2,7 @@ import './App.css';
 import Header from './components/Header';
 import GifCard from './components/GifCard';
 import { ApiKey } from './ApiKey';
+import MainPage from './pages/MainPage';
 
 function App() {
   const getResponse = (url) => fetch(url);
@@ -16,6 +17,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <MainPage />
       <div className="container-sm d-flex flex-row justify-content-around flex-wrap">
         <GifCard />
         <GifCard />
