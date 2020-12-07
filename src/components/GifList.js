@@ -4,9 +4,17 @@ import ApiKey from '../ApiKey';
 
 const GifList = ({ length = 0, items = [] }) => {
   return (
-    <div className="GifList">
+    <div
+      className="GifList d-flex container-sm"
+      style={{
+        gap: '1rem',
+        justifyContent: 'space-around',
+        alignItems: 'flex-start',
+        flexWrap: 'wrap',
+      }}
+    >
       {items.map((item) => {
-        return <GifCard />;
+        return <GifCard item={item} />;
       })}
     </div>
   );
